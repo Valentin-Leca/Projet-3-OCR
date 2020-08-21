@@ -9,6 +9,7 @@ Les données doivent provenir de l'API temps réel.
 Il doit être possible de réserver un vélo disponible à la station sélectionnée en :
 
 1°) Indiquant son nom et son prénom,
+
 2°) Signant dans un champ libre implémenté à l’aide de l’API HTML5 Canvas.
 
 Vous devez écrire vous même le code du Canvas. Aucun plugin n’est autorisé.
