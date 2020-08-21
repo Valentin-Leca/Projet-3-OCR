@@ -1,4 +1,4 @@
-# Projet-3-OCR
+# Projet-3-OCR     Javascript ES6 POO
 
 http://www.projet-3.valentin-lecavelier-des-etangs.com/
 
