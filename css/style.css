@@ -1,0 +1,602 @@
+@font-face {
+    font-family: 'bonvenocflight';
+    src: url('BonvenoCF-Light-webfont.eot');
+    src: url('BonvenoCF-Light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('BonvenoCF-Light-webfont.woff') format('woff'),
+    url('BonvenoCF-Light-webfont.ttf') format('truetype'),
+    url('BonvenoCF-Light-webfont.svg#bonvenocflight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    font-family: 'bonvenocflight';
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ----- Titre / Sous-Titre / Logo ----- */
+h1 {
+    font-size: 4em;
+    margin-top: 25px;
+    color: rgb(36,115,149)
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+#logo {
+    border: 5px white solid;
+    border-radius: 50%;
+    height: 160px;
+    margin-left: 25%;
+    margin-top: 1%;
+}
+
+/* ----- Slider et Boutons ----- */
+#slider {
+    width: 90%;
+    margin-left: 5%;
+    height: 650px;
+    position: relative;
+    border: 1.9px black ridge;
+    border-radius: 5px;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#slide-2, #slide-3, #slide-4 {
+    display: none;
+}
+
+#play {
+    display: none;
+}
+
+#previous_slide, #next_slide, #play_pause {
+    font-size: 4em;
+}
+
+#play_pause {
+    margin: 0 50px;
+}
+
+/* ----- Map ----- */
+#mapid {
+    margin-left: 2.5%;
+    height: 600px;
+    width: 42.5%;
+    position: absolute;
+    margin-bottom: 1%;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+/* ----- Encart Réservation ----- */
+#reserv_section {
+    height: 600px;
+    width: 42.5%;
+    position: relative;
+    margin-left: 54.5%;
+}
+
+#reserv_section h3, #formulaire_resa h3, #canvas_resa h3, #footer_timer h3 {
+    font-size : 2em;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#reserv_section p {
+    font-size: 1.2em;
+    margin-top: 4.5%;
+    margin-left: 2%;
+}
+
+#reserv_btn p {
+    font-size: 1.8em;
+    text-align: center;
+    border: 2px black ridge;
+    width: 50%;
+    border-radius: 30px;
+    margin-left: 25%;
+    margin-top: 4%;
+    padding: 5px;
+    background-color: white;
+}
+
+#reserv_btn p:hover, #valid_button:hover, #cancel_button:hover, #submit_button:hover {
+    background-color: rgb(236,230,228);
+    cursor: pointer;
+}
+
+#reserv_btn {
+    display: none;
+}
+
+#formulaire_section, #signature_section {
+    height: 290px;
+    width: 42.5%;
+    position: relative;
+    margin-left: 54.6%;
+    display: none;
+}
+
+#signature_section {
+    margin-top: 20px;
+}
+
+.input_name, .input_prenom {
+    margin-left: 21%;
+    margin-top: 5%;
+}
+
+#submit_button {
+    font-size: 1.6em;
+    text-align: center;
+    border: 2px black ridge;
+    width: 35%;
+    border-radius: 10px;
+    margin-left: 18.7%;
+    margin-top: 4%;
+    background-color: white;
+}
+
+#reserv_section, #formulaire_section, #signature_section, #mapid {
+    background-color: rgb(236,230,228);
+    border: thick double rgb(36,115,149);
+    border-radius: 10px;
+}
+
+/* ----- Encart Signature ----- */
+
+#canvas_resa h3 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+#canvas {
+    background-color: white;
+    border: 3px black ridge;
+    margin-top: -2%;
+    margin-left: 22.5%;
+    cursor: url(../images/pencil.png) 0 28, auto;
+    display: none;
+}
+
+#valid_button, #cancel_button {
+    margin-left: 45%;
+    margin-top: 2%;
+    border: 3px black ridge;
+    line-height: 2.5;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    display: none;
+}
+
+#valid_button {
+    width: 18%;
+    color: black;
+    font-size: 1.1rem;
+    margin-left: 39%;
+}
+
+#cancel_button {
+    margin-left: 38%;
+}
+
+#footer {
+    width: 94.7%;
+    margin-left: 2.5%;
+    height: 150px;
+    margin-top: 1.5%;
+    border: thick double rgb(36,115,149);
+    background-color: rgb(236,230,228);
+    border-radius: 10px;
+    position: relative;
+    display: none;
+}
+
+#footer_recap, #footer_timer {
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 60%;
+    height: 90%;
+    margin-top: 0.30%;
+    margin-left: 0.2%;
+    position: absolute;
+    background-color: white;
+}
+
+#footer_timer {
+    width: 35%;
+    margin-left: 64.5%;
+}
+
+#footer_recap p {
+    font-size: 1em;
+    margin-left: 1.5%;
+    margin-top: 0.6%;
+}
+
+#footer_timer h3 {
+    margin-top: 0.5%;
+}
+
+#timer {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: -5%;
+    display: none;
+    font-size: 3.8em;
+}
+
+#minutes {
+    align-items: center;
+    margin-left: 15%;
+}
+
+/* ----- Média Queries ----- */
+
+@media all and (min-width: 426px) and (max-width: 768px) {
+    #logo {
+        height: 90px;
+        margin-left: 25%;
+        margin-top: 25%;
+    }
+
+    #slider {
+        height: 350px;
+    }
+
+    #reserv_section p {
+        font-size: 1em;
+    }
+
+    #reserv_btn p {
+        font-size: 0.90em;
+        padding: 5px;
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-top: 25px;
+        color: rgb(36,115,149)
+    }
+
+    #formulaire_resa h3, #canvas_resa h3 {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+
+    #input_name, #input_prenom {
+        width: 80%;
+        margin-top: 5%;
+    }
+
+    .input_name, .input_prenom {
+        font-size: 0.55em;
+        width: 200px;
+        margin-left: 25%;
+    }
+
+    #footer_recap p {
+        font-size: 0.74em;
+        margin-top: 0.5%;
+    }
+
+    #submit_button {
+        width: auto;
+        margin-top: 15%;
+    }
+
+    #canvas {
+        width: 80%;
+        height: 100px;
+        margin-left: 10%;
+        margin-top: 15%;
+    }
+
+    #valid_button {
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    #cancel_button {
+        margin-top: 40px;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #valid_button b, cancel_button b {
+        font-size: 0.8em;
+    }
+
+    #footer_timer h3 {
+        font-size: 1.3em;
+    }
+
+    #timer {
+        font-size: 1em;
+        margin-top: 25px;
+    }
+}
+
+@media all and (min-width: 426px) and (max-width: 650px) {
+    #logo {
+        height: 80px;
+        margin-top: 35%;
+    }
+
+    #footer_recap p {
+        font-size: 0.60em;
+        margin-top: 0.5%;
+    }
+
+    .input_name, .input_prenom {
+        margin-left: 18%;
+    }
+}
+
+@media all and (min-width: 426px) and (max-width: 565px) {
+    #reserv_btn p {
+        font-size: 0.65em;
+    }
+
+    .input_name, .input_prenom {
+        margin-left: 5%;
+    }
+
+    #submit_button {
+        margin-left: 14.5%;
+    }
+}
+
+@media all and (min-width: 1442px) and (max-width: 1585px) {
+    #submit_button {
+        font-size: 1em;
+    }
+}
+
+@media all and (min-width: 1025px) and (max-width: 1440px) {
+    #cancel_button {
+        margin-left: 30%;
+    }
+
+    #submit_button {
+        font-size: 1.2em;
+    }
+
+    #canvas {
+        margin-top: 4%;
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    #valid_button {
+        width: 20%;
+    }
+
+    #footer_recap p {
+        font-size: 0.9em;
+    }
+}
+
+@media all and (min-width: 769px) and (max-width: 1110px) {
+    #formulaire_resa h3, #footer_timer h3 {
+        font-size: 1.3em;
+    }
+
+    #input_name, #input_prenom {
+        width: 80%;
+        margin-top: 5%;
+    }
+
+    .input_name, .input_prenom {
+        font-size: 0.80em;
+        width: 230px;
+        margin-left: 25%;
+    }
+
+    #submit_button {
+        width: auto;
+    }
+
+    #footer_recap p {
+        font-size: 0.92em;
+    }
+
+    #timer {
+        font-size: 1.9em;
+        margin-top: 15px;
+    }
+}
+
+@media all and (min-width: 1111px) and (max-width: 1380px) {
+    #timer {
+        font-size: 2.8em;
+        margin-top: 10px;
+    }
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+    #cancel_button {
+        margin-left: 24%;
+    }
+
+    #reserv_btn p {
+        font-size: 1.3em;
+    }
+
+    #canvas {
+        margin-top: 4%;
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    #valid_button {
+        margin-top: 8%;
+        width: 35%;
+        margin-left: 30%;
+    }
+}
+
+@media all and (min-width: 376px) and (max-width: 425px) {
+    #cancel_button {
+        margin-left: 20%;
+        margin-top: 20%;
+    }
+}
+
+@media all and (min-width: 321px) and (max-width: 375px) {
+    #cancel_button {
+        margin-left: 18%;
+    }
+}
+
+@media all and (min-width: 0px) and (max-width: 320px) {
+    #cancel_button {
+        margin-left: 12%;
+    }
+}
+
+@media all and (min-width: 0px) and (max-width: 425px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    #logo {
+        margin-top: 40px;
+        height: 50px;
+    }
+
+    h2 {
+        font-size: 1.15em;
+        margin-top: 2%;
+    }
+
+    #slider {
+        height: 250px;
+    }
+
+    #play_pause, #previous_slide, #next_slide {
+        font-size: 2.4em;
+    }
+
+    #mapid, #reserv_section, #formulaire_section, #signature_section {
+        width: 92.5%;
+        margin-left: 2.5%;
+        position: relative;
+        height: 250px;
+    }
+
+    #mapid {
+        margin-top: 3%;
+    }
+
+    #reserv_section {
+        margin-left: 2.5%;
+        height: 315px;
+    }
+
+    #reserv_section h3, #formulaire_resa h3, #canvas_resa h3, #footer_timer h3 {
+        font-size : 1.5em;
+    }
+
+    #reserv_section p {
+        font-size: 0.8em;
+        margin-top: -1%;
+    }
+
+    #formulaire_section, #signature_section {
+        font-size: 0.8em;
+    }
+
+    .input_name, .input_prenom {
+        font-size: 1em;
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    #input_name, #input_prenom {
+        height: 25px;
+        width: 80%;
+        margin-top: 5%;
+    }
+
+    #submit_button {
+        font-size: 0.8em;
+        text-align: center;
+        border: 2px black ridge;
+        width: 35%;
+        border-radius: 10px;
+        margin-left: 22%;
+        margin-top: 1%;
+        background-color: white;
+    }
+
+    #canvas {
+        width: 80%;
+        height: 100px;
+        margin-left: 10%;
+    }
+
+    #valid_button b, cancel_button b {
+        font-size: 0.7em;
+    }
+
+    #valid_button {
+        width: 26%;
+        margin-left: 35%;
+    }
+
+    #footer {
+        width: 92.5%;
+        height: 200px;
+    }
+
+    #footer_recap p {
+        font-size: 0.65em;
+    }
+
+    #minutes, #seconds {
+        font-size: 1.2em;
+    }
+
+    #timer {
+        width: 100%;
+        margin-left: 10%;
+        margin-top: 40%;
+        font-size: 0.75em;
+    }
+
+    #footer_recap, #footer_timer {
+        height: 90%;
+        margin-top: 5%;
+    }
+
+    #footer_timer {
+        margin-left: 63%;
+    }
+
+    #footer_timer h3 {
+        font-size: 1.3em;
+    }
+}

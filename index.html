@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/ba3554ebfa.js" crossorigin="anonymous"></script>
+    <!-- Script Font Awesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- script bootstrap-->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Vélo'c</title>
+</head>
+
+<body>
+
+<!-- Titre Principal et Logo -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <img class="img-fluid" id="logo" src="images/logo.png" alt="logo vélo'c">
+        </div>
+        <div class="col-6">
+            <h1>Bienvenue sur Vélo'C</h1>
+        </div>
+    </div>
+
+    <!-- Sous-Titre -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Louez <span class="underline">facilement</span> et <span class="underline">rapidement</span> votre vélo
+                !</h2>
+        </div>
+    </div>
+
+
+    <!-- Slider d'images Vélos -->
+
+    <div id="slider">
+        <img class="slide" id="slide-1" src="images/Slide_1.png" alt="Plan GPS">
+        <img class="slide" id="slide-2" src="images/Slide_2.jpg" alt="Vélo vert alignés">
+        <img class="slide" id="slide-3" src="images/Slide_3.jpg" alt="Vélo bleu alignés">
+        <img class="slide" id="slide-4" src="images/Slide_4.jpg" alt="Vélo jaune alignés">
+    </div>
+
+    <!-- Boutons de Navigation du Slider -->
+    <div class="d-flex justify-content-center">
+        <div id="previous_slide">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div id="play_pause">
+            <div id="play">
+                <i class="far fa-play-circle"></i>
+            </div>
+            <div id="pause">
+                <i class="far fa-pause-circle"></i>
+            </div>
+        </div>
+        <div id="next_slide">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Carte -->
+    <div class="row">
+        <div id="mapid">
+        </div>
+
+        <!-- Réservation -->
+
+        <section id="reserv_section">
+            <h3>Détails de la Station</h3>
+            <p id="reserv_name"><b>Nom :</b></p>
+            <p id="reserv_address"><b>Adresse :</b></p>
+            <p id="reserv_status"><b>Statut :</b></p>
+            <p id="reserv_available_space"><b>Places disponibles :</b></p>
+            <p id="reserv_available_bike"><b>Vélos disponibles :</b></p>
+            <div id="reserv_btn">
+                <p><b>Sélectionnez cette station</b></p>
+            </div>
+        </section>
+
+        <section id="formulaire_section">
+            <div id="formulaire_resa">
+                <h3>Formulaire de Réservation</h3>
+                <form id="form">
+                    <div class="input_name">
+                        <label><b>Veuillez indiquer votre nom : </b></label>
+                        <input id="input_name" type="text" name="name" size="25" minlength="2" maxlength="20"
+                               pattern="[a-zA-ZÀ-ÿ-]+" title="Pas de chiffres ni caractères spéciaux." required>
+                    </div>
+                    <div class="input_prenom">
+                        <label><b>Veuillez indiquer votre prénom : </b></label>
+                        <input id="input_prenom" type="text" name="name" size="22" minlength="2" maxlength="20"
+                               pattern="[a-zA-ZÀ-ÿ-]+" title="Pas de chiffres ni caractères spéciaux." required>
+                        <input type="submit" id="submit_button" value="Enregistrer">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="signature_section">
+            <div id="canvas_resa">
+                <h3 id="canvas_title">Veuillez signer</h3>
+                <canvas id="canvas" width="450" height="115"></canvas>
+                <a href="#timer" id="valid_button"><b>Réserver</b></a>
+                <button id="cancel_button" type="button"><b>Annuler la Réservation</b></button>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <div id="footer_recap">
+            <p id="recap_station"><b>Vélo réservé à la station : </b></p>
+            <p id="recap_address"><b>À l'adresse : </b></p>
+            <p id="recap_name"><b>Par : </b></p>
+        </div>
+        <div id="footer_timer">
+            <h3>Temps restant</h3>
+            <div id="timer">
+                <span id="minutes">20</span> :
+                <span id="seconds">00</span>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="js/ajax.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/map.js"></script>
+<script src="js/reservation.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/timer.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
